@@ -367,10 +367,9 @@ body {
 }
 
 .contact-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    max-width: 400px;
     margin: 0 auto;
 }
 
@@ -378,36 +377,24 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid #333333;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border: 2px solid #25D366;
     border-radius: 12px;
     text-decoration: none;
     color: #ffffff;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    width: 100%;
+    justify-content: center;
 }
 
 .contact-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-    border-color: #555555;
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+    border-color: #20B358;
 }
 
-.whatsapp:hover {
-    background: rgba(37, 211, 102, 0.1);
-    border-color: #25d366;
-}
-
-.email:hover {
-    background: rgba(234, 67, 53, 0.1);
-    border-color: #ea4335;
-}
-
-.instagram:hover {
-    background: rgba(225, 48, 108, 0.1);
-    border-color: #e1306c;
-}
 
 .btn-icon {
     font-size: 2rem;
