@@ -52,11 +52,22 @@ const config = {
 
 // Función para obtener la API Key desde variables de entorno
 function getGoogleMapsAPIKey() {
-    // En desarrollo: usar variable de entorno o fallback
-    // En producción: Vercel manejará las variables de entorno
-    return process.env.GOOGLE_MAPS_API_KEY || 
-           window.GOOGLE_MAPS_API_KEY || 
-           'AIzaSyATJ12HwKtu-sB_-iXfBSNs6vkoyh9W1YY'; // Fallback temporal
+    // Prioridad de fuentes:
+    // 1. Variable de entorno de Vercel (producción)
+    // 2. Variable de entorno local (.env)
+    // 3. Variable global del navegador
+    // 4. Fallback temporal (solo para desarrollo)
+    
+    if (typeof process !== 'undefined' && process.env && process.env.GOOGLE_MAPS_API_KEY) {
+        return process.env.GOOGLE_MAPS_API_KEY;
+    }
+    
+    if (typeof window !== 'undefined' && window.GOOGLE_MAPS_API_KEY) {
+        return window.GOOGLE_MAPS_API_KEY;
+    }
+    
+    // Fallback temporal - solo para desarrollo local
+    return 'AIzaSyATJ12HwKtu-sB_-iXfBSNs6vkoyh9W1YY';
 }
 
 // Exportar configuración

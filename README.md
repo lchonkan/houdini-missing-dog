@@ -40,6 +40,22 @@ python3 -m http.server 8000
 npx serve .
 ```
 
+## 🔐 Configuración de Variables de Entorno
+
+### Para Desarrollo Local:
+```bash
+# Copiar plantilla de variables de entorno
+cp env.template .env
+
+# Editar .env con tu API Key real
+# GOOGLE_MAPS_API_KEY=tu_api_key_aqui
+```
+
+### Para Producción (Vercel):
+1. Ve a tu proyecto en [Vercel Dashboard](https://vercel.com/dashboard)
+2. Settings > Environment Variables
+3. Agregar: `GOOGLE_MAPS_API_KEY` = `tu_api_key_real`
+
 ## 📱 Características
 
 - ✅ Diseño responsive optimizado para móviles
