@@ -68,18 +68,18 @@ body {
 
 /* Main Content */
 .main {
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 /* Hero Section */
 .hero {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -366,9 +366,9 @@ body {
 
 /* Contact Section */
 .contact-section {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
     border-radius: 16px;
     border: 1px solid #333333;
@@ -440,14 +440,14 @@ body {
 
 /* Details Section */
 .details-section {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .details-section h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: #ffffff;
 }
 
@@ -935,18 +935,18 @@ img:not([src]) {
 
 /* Timeline Styles */
 .timeline-section {
-    margin-top: 2rem;
-    padding: 1.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     border-radius: 12px;
     border: 1px solid #333333;
 }
 
 .timeline-section h4 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #ffffff;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
@@ -997,7 +997,7 @@ img:not([src]) {
 
 .timeline-content {
     background: #1a1a1a;
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1rem;
     border-radius: 8px;
     border: 1px solid #333333;
     flex: 1;
@@ -1005,17 +1005,17 @@ img:not([src]) {
 }
 
 .timeline-content h5 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #ffffff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .timeline-content p {
     color: #cccccc;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
 }
 
 .timeline-content p:last-child {
