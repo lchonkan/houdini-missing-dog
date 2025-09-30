@@ -30,6 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -205,10 +208,11 @@
     <!-- Google Maps Script -->
     <script>
         function initMap() {
-            // Coordenadas exactas de los tres puntos específicos
-            const casaHoudini = { lat: 9.928878068653097, lng: -84.06341474867753 }; // Casa de Houdini - donde se escapó
-            const guardaAviso = { lat: 9.927057681327756, lng: -84.06172839052661 }; // Guarda que avisó
-            const ultimaVista = { lat: 9.930828379943081, lng: -84.0639289207042 }; // Última vez vista
+            // Usar configuración externa
+            const locations = window.config.locations;
+            const casaHoudini = { lat: locations.casaHoudini.lat, lng: locations.casaHoudini.lng };
+            const guardaAviso = { lat: locations.guardaAviso.lat, lng: locations.guardaAviso.lng };
+            const ultimaVista = { lat: locations.ultimaVista.lat, lng: locations.ultimaVista.lng };
             
             // Centro del mapa entre los tres puntos
             const mapCenter = {
@@ -333,6 +337,14 @@
             flightPath.setMap(map);
         }
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATJ12HwKtu-sB_-iXfBSNs6vkoyh9W1YY&callback=initMap"></script>
+    <script>
+        // Cargar Google Maps con API Key desde configuración
+        const apiKey = window.getGoogleMapsAPIKey();
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    </script>
 </body>
 </html>
