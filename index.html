@@ -33,10 +33,13 @@
     <!-- Configuration -->
     <script src="config.js"></script>
     
-    <!-- Vercel Analytics -->
+    <!-- Vercel Analytics & Speed Insights -->
     <script type="module">
-        import { inject } from 'https://unpkg.com/@vercel/analytics@latest/dist/index.js';
-        inject();
+        import { inject as injectAnalytics } from 'https://unpkg.com/@vercel/analytics@latest/dist/index.js';
+        import { inject as injectSpeedInsights } from 'https://unpkg.com/@vercel/speed-insights@latest/dist/index.js';
+        
+        injectAnalytics();
+        injectSpeedInsights();
     </script>
     
     <!-- JSON-LD Structured Data -->
@@ -394,5 +397,9 @@
 
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+      </script>
+      <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
