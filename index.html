@@ -34,12 +34,20 @@
     <script src="config.js"></script>
     
     <!-- Vercel Analytics & Speed Insights -->
-    <script type="module">
-        import { inject as injectAnalytics } from 'https://unpkg.com/@vercel/analytics@latest/dist/index.js';
-        import { inject as injectSpeedInsights } from 'https://unpkg.com/@vercel/speed-insights@latest/dist/index.js';
-        
-        injectAnalytics();
-        injectSpeedInsights();
+    <script>
+        // Only load analytics in production (Vercel environment)
+        if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+            const analyticsScript = document.createElement('script');
+            analyticsScript.src = 'https://unpkg.com/@vercel/analytics@latest/dist/index.js';
+            analyticsScript.defer = true;
+            document.head.appendChild(analyticsScript);
+            
+            const speedInsightsScript = document.createElement('script');
+            speedInsightsScript.src = 'https://unpkg.com/@vercel/speed-insights@latest/dist/index.js';
+            speedInsightsScript.defer = true;
+            document.head.appendChild(speedInsightsScript);
+        }
     </script>
     
     <!-- JSON-LD Structured Data -->
@@ -97,6 +105,37 @@
                         <p><strong>Casa de Houdini:</strong> Se escapó el Domingo 28 a las 11:50 p.m.</p>
                         <p><strong>Guarda que avisó:</strong> WWHQ+26 San José, San José Province</p>
                         <p><strong>Última vez vista:</strong> Lunes 29 a la 1:00 a.m. - WWJP+862, Av. 6, San José, Francisco Peralta</p>
+                    </div>
+                    
+                    <!-- Timeline Section -->
+                    <div class="timeline-section">
+                        <h4>Cronología de Eventos</h4>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-number">1</div>
+                                <div class="timeline-content">
+                                    <h5>🏠 Casa de Houdini</h5>
+                                    <p><strong>Domingo 28 - 11:50 p.m.</strong></p>
+                                    <p>Houdini se escapó de casa. Este es el punto de partida de la búsqueda.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">2</div>
+                                <div class="timeline-content">
+                                    <h5>📍 Última Vez Vista</h5>
+                                    <p><strong>Lunes 29 - 1:00 a.m.</strong></p>
+                                    <p>Última vez que alguien reportó haber visto a Houdini. Solo 1 hora y 10 minutos después de haberse escapado.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-number">3</div>
+                                <div class="timeline-content">
+                                    <h5>🚨 Guarda que Avisó</h5>
+                                    <p><strong>Lunes 29 - 2:00 a.m.</strong></p>
+                                    <p>Una muchacha le dijo al guarda que tenía a Houdini y le dió el número para que la llamara. El guarda le dijo esto a una señora. El guarda apuntó mal el número de la muchacha.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -216,7 +255,6 @@
             <p>&copy; 2024 - Se Busca Houdini. Todos los derechos reservados.</p>
             <p class="footer-note">Si encuentras a Houdini, por favor contáctanos inmediatamente.</p>
         </div>
-        <Analytics />
     </footer>
 
     <!-- Google Maps Script -->
@@ -237,33 +275,13 @@
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 14,
                 center: mapCenter,
-                mapTypeId: 'satellite',
-                styles: [
-                    {
-                        featureType: "all",
-                        elementType: "geometry.fill",
-                        stylers: [{ color: "#2d2d2d" }]
-                    },
-                    {
-                        featureType: "all",
-                        elementType: "labels.text.fill",
-                        stylers: [{ color: "#ffffff" }]
-                    },
-                    {
-                        featureType: "water",
-                        stylers: [{ color: "#1a1a1a" }]
-                    },
-                    {
-                        featureType: "road",
-                        elementType: "geometry",
-                        stylers: [{ color: "#333333" }]
-                    },
-                    {
-                        featureType: "poi",
-                        elementType: "labels.text.fill",
-                        stylers: [{ color: "#cccccc" }]
-                    }
-                ]
+                mapTypeId: 'roadmap',
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.TOP_CENTER,
+                    mapTypeIds: ['roadmap', 'satellite', 'hybrid']
+                }
             });
 
             // Marcador 1: Casa de Houdini - donde se escapó
@@ -272,9 +290,9 @@
                 map: map,
                 title: "Casa de Houdini",
                 label: {
-                    text: "🏠 CASA",
+                    text: "1",
                     color: "#ffffff",
-                    fontSize: "12px",
+                    fontSize: "14px",
                     fontWeight: "bold"
                 }
             });
@@ -287,21 +305,21 @@
                 casaHoudiniInfo.open(map, casaHoudiniMarker);
             });
 
-            // Marcador 2: Guarda que avisó
+            // Marcador 3: Guarda que avisó
             const guardaMarker = new google.maps.Marker({
                 position: guardaAviso,
                 map: map,
                 title: "Guarda que avisó",
                 label: {
-                    text: "🚨 AVISO",
+                    text: "3",
                     color: "#ffffff",
-                    fontSize: "12px",
+                    fontSize: "14px",
                     fontWeight: "bold"
                 }
             });
 
             const guardaInfo = new google.maps.InfoWindow({
-                content: '<div style="color: #000; padding: 12px; text-align: center;"><h3 style="margin: 0 0 8px 0; color: #ff4444;">🚨 GUARDA QUE AVISÓ</h3><p style="margin: 0 0 5px 0;"><strong>Descripción del aviso:</strong></p><p style="margin: 0; font-size: 12px; line-height: 1.4;">Una muchacha le dijo al guarda que tenía a Houdini, pero el guarda apuntó mal el número de teléfono de la muchacha. Este fue un aviso importante que se perdió por el error en el número.</p><p style="margin: 5px 0 0 0; font-size: 11px; color: #666;">WWHQ+26 San José, San José Province</p></div>'
+                content: '<div style="color: #000; padding: 12px; text-align: center;"><h3 style="margin: 0 0 8px 0; color: #ff4444;">🚨 GUARDA QUE AVISÓ</h3><p style="margin: 0 0 5px 0;"><strong>Lunes 29 - 2:00 a.m.</strong></p><p style="margin: 0; font-size: 12px; line-height: 1.4;">Una muchacha le dijo al guarda que tenía a Houdini y le dió el número para que la llamara. El guarda le dijo esto a una señora. El guarda apuntó mal el número de la muchacha.</p><p style="margin: 5px 0 0 0; font-size: 11px; color: #666;">WWHQ+26 San José, San José Province</p></div>'
             });
 
             guardaMarker.addListener('click', function() {
@@ -314,9 +332,9 @@
                 map: map,
                 title: "Última vez vista",
                 label: {
-                    text: "🐕 HOUDINI",
+                    text: "2",
                     color: "#ffffff",
-                    fontSize: "12px",
+                    fontSize: "14px",
                     fontWeight: "bold"
                 }
             });
@@ -349,6 +367,18 @@
                 }]
             });
             flightPath.setMap(map);
+
+            // Círculo de búsqueda de 1.5 km alrededor del punto 1
+            const searchRadius = new google.maps.Circle({
+                strokeColor: "#00ff00",
+                strokeOpacity: 0.8,
+                strokeWeight: 3,
+                fillColor: "#00ff00",
+                fillOpacity: 0.15,
+                map: map,
+                center: casaHoudini,
+                radius: 1500 // 1.5 km en metros
+            });
         }
     </script>
     <script>
