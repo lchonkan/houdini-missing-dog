@@ -45,6 +45,15 @@ body {
     font-weight: 300;
 }
 
+.contact-info {
+    font-size: 1.1rem;
+    color: #25d366;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    padding-top: 5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 /* Main Content */
 .main {
     padding: 2rem 0;
@@ -819,6 +828,97 @@ img:not([src]) {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555555;
+}
+
+/* Fixed Contact Button */
+.fixed-contact-btn {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    animation: slideInRight 0.5s ease-out;
+}
+
+.contact-btn-fixed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50%;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.contact-btn-fixed:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #2ee46a 0%, #1a9d8f 100%);
+}
+
+.contact-btn-fixed .btn-icon {
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .fixed-contact-btn {
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .contact-btn-fixed {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-btn-fixed .btn-icon {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-contact-btn {
+        top: 0.8rem;
+        right: 0.8rem;
+    }
+    
+    .contact-btn-fixed {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .contact-btn-fixed .btn-icon {
+        font-size: 1.2rem;
+    }
 }
 
 /* Timeline Styles */
