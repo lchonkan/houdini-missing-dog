@@ -1,0 +1,27 @@
+{
+  "name": "houdini-missing-dog",
+  "version": "1.0.0",
+  "description": "Website to help find missing dog Houdini",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "echo 'Deploy to Vercel'"
+  },
+  "keywords": [
+    "missing-dog",
+    "houdini",
+    "costa-rica",
+    "static-site"
+  ],
+  "author": "Leo Chonkan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leo-chonkan/houdini-missing-dog.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

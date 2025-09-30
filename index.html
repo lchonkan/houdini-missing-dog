@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Se Busca Houdini - Perrita Perdida en Los Yoses, Costa Rica</title>
+    <meta name="description" content="Ayuda a encontrar a Houdini, perrita perdida en Los Yoses, Montes de Oca. Última vista: Lunes 29 a la 1:00 a.m. Contacto: +506 84183507">
+    <meta name="keywords" content="perro perdido, houdini, los yoses, montes de oca, costa rica, mascota perdida">
+    <meta name="author" content="Leo Chonkan">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Se Busca Houdini - Perrita Perdida">
+    <meta property="og:description" content="Ayuda a encontrar a Houdini, perrita perdida en Los Yoses, Montes de Oca. Contacto: +506 84183507">
+    <meta property="og:image" content="IMG_1003 (1).jpeg">
+    <meta property="og:url" content="https://houdini-missing-dog.vercel.app">
+    <meta property="og:site_name" content="Búsqueda de Houdini">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Se Busca Houdini - Perrita Perdida">
+    <meta property="twitter:description" content="Ayuda a encontrar a Houdini, perrita perdida en Los Yoses, Montes de Oca. Contacto: +506 84183507">
+    <meta property="twitter:image" content="IMG_1003 (1).jpeg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="IMG_1003 (1).jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Búsqueda de Houdini",
+        "description": "Ayuda a encontrar a Houdini, perrita perdida en Los Yoses, Montes de Oca, Costa Rica",
+        "url": "https://houdini-missing-dog.vercel.app",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+506-84183507",
+            "contactType": "WhatsApp",
+            "availableLanguage": "Spanish"
+        },
+        "sameAs": [
+            "https://instagram.com/leo.chonkan"
+        ]
+    }
+    </script>
+    
+    <style>
+        .placeholder-image {
+            background: linear-gradient(135deg, #333333 0%, #555555 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cccccc;
+            font-size: 1.2rem;
+            text-align: center;
+            border: 2px dashed #666666;
+        }
+        .placeholder-image::before {
+            content: "📷 Foto de Houdini";
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="title">SE BUSCA HOUDINI</h1>
+            <p class="subtitle">Perrita perdida en Los Yoses, San José</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Map Section - PRIMERO -->
+            <section class="map-section">
+                <h3>Última Ubicación Conocida</h3>
+                <div class="map-container">
+                    <div id="map"></div>
+                    <div class="map-info">
+                        <p><strong>Casa de Houdini:</strong> Se escapó el Domingo 28 a las 11:50 p.m.</p>
+                        <p><strong>Guarda que avisó:</strong> WWHQ+26 San José, San José Province</p>
+                        <p><strong>Última vez vista:</strong> Lunes 29 a la 1:00 a.m. - WWJP+862, Av. 6, San José, Francisco Peralta</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section - SEGUNDO -->
+            <section class="contact-section">
+                <h3>¿Has visto a Houdini?</h3>
+                <p class="contact-subtitle">No se harán preguntas, contacta a mi familia</p>
+                
+                <div class="contact-buttons">
+                    <a href="https://wa.me/50684183507" class="contact-btn whatsapp" target="_blank">
+                        <span class="btn-icon">📱</span>
+                        <span class="btn-text">
+                            <strong>WhatsApp</strong>
+                            <small>+506 8418-3507</small>
+                        </span>
+                    </a>
+                    
+                    <a href="mailto:leo@chonkan.com" class="contact-btn email" target="_blank">
+                        <span class="btn-icon">✉️</span>
+                        <span class="btn-text">
+                            <strong>Email</strong>
+                            <small>leo@chonkan.com</small>
+                        </span>
+                    </a>
+                    
+                    <a href="https://instagram.com/leo.chonkan" class="contact-btn instagram" target="_blank">
+                        <span class="btn-icon">📷</span>
+                        <span class="btn-text">
+                            <strong>Instagram</strong>
+                            <small>@leo.chonkan</small>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Status Section - TERCERO (RESUMIDO) -->
+            <section class="status-section">
+                <h3>Estado de la Búsqueda</h3>
+                <div class="status-summary">
+                    <div class="status-item-summary">
+                        <span class="status-icon">🔍</span>
+                        <span class="status-text">Búsqueda activa en San José</span>
+                    </div>
+                    <div class="status-item-summary">
+                        <span class="status-icon">📢</span>
+                        <span class="status-text">Posters distribuidos</span>
+                    </div>
+                    <div class="status-item-summary">
+                        <span class="status-icon">👥</span>
+                        <span class="status-text">Comunidad ayudando</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hero Section - CUARTO -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="dog-photos">
+                        <img src="IMG_1003 (1).jpeg" alt="Houdini - Perrita perdida" class="main-photo">
+                        <div class="photo-grid">
+                            <img src="IMG_0994.jpeg" alt="Houdini de pie" class="secondary-photo">
+                            <img src="IMG_0995.jpeg" alt="Houdini acostada" class="secondary-photo">
+                            <img src="IMG_0996.jpeg" alt="Houdini adicional" class="secondary-photo">
+                        </div>
+                    </div>
+                    <div class="hero-info">
+                        <h2>HOUDINI</h2>
+                        <p class="description">Perrita de color dorado claro, tamaño mediano, muy nerviosa. Se perdió en la zona de Los Yoses, Montes de Oca.</p>
+                        <div class="reward-badge">
+                            <span>RECOMPENSA</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dog Details Section -->
+            <section class="details-section">
+                <h3>Características de Houdini</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <h4>Apariencia</h4>
+                        <ul>
+                            <li>Color dorado claro/tan</li>
+                            <li>Pelaje ondulado y esponjoso</li>
+                            <li>Tamaño mediano</li>
+                            <li>Collar negro con anillo plateado</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Comportamiento</h4>
+                        <ul>
+                            <li>Muy nerviosa</li>
+                            <li>Puede estar asustada</li>
+                            <li>Responde al nombre "Houdini"</li>
+                        </ul>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Ubicaciones Importantes</h4>
+                        <ul>
+                            <li><strong>Guarda que avisó:</strong> WWHQ+26 San José</li>
+                            <li><strong>Última vez vista:</strong> WWJP+862, Av. 6</li>
+                            <li>Francisco Peralta, San José</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 - Se Busca Houdini. Todos los derechos reservados.</p>
+            <p class="footer-note">Si encuentras a Houdini, por favor contáctanos inmediatamente.</p>
+        </div>
+    </footer>
+
+    <!-- Google Maps Script -->
+    <script>
+        function initMap() {
+            // Coordenadas exactas de los tres puntos específicos
+            const casaHoudini = { lat: 9.928878068653097, lng: -84.06341474867753 }; // Casa de Houdini - donde se escapó
+            const guardaAviso = { lat: 9.927057681327756, lng: -84.06172839052661 }; // Guarda que avisó
+            const ultimaVista = { lat: 9.930828379943081, lng: -84.0639289207042 }; // Última vez vista
+            
+            // Centro del mapa entre los tres puntos
+            const mapCenter = {
+                lat: (casaHoudini.lat + guardaAviso.lat + ultimaVista.lat) / 3,
+                lng: (casaHoudini.lng + guardaAviso.lng + ultimaVista.lng) / 3
+            };
+            
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: mapCenter,
+                mapTypeId: 'satellite',
+                styles: [
+                    {
+                        featureType: "all",
+                        elementType: "geometry.fill",
+                        stylers: [{ color: "#2d2d2d" }]
+                    },
+                    {
+                        featureType: "all",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#ffffff" }]
+                    },
+                    {
+                        featureType: "water",
+                        stylers: [{ color: "#1a1a1a" }]
+                    },
+                    {
+                        featureType: "road",
+                        elementType: "geometry",
+                        stylers: [{ color: "#333333" }]
+                    },
+                    {
+                        featureType: "poi",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#cccccc" }]
+                    }
+                ]
+            });
+
+            // Marcador 1: Casa de Houdini - donde se escapó
+            const casaHoudiniMarker = new google.maps.Marker({
+                position: casaHoudini,
+                map: map,
+                title: "Casa de Houdini",
+                label: {
+                    text: "🏠 CASA",
+                    color: "#ffffff",
+                    fontSize: "12px",
+                    fontWeight: "bold"
+                }
+            });
+
+            const casaHoudiniInfo = new google.maps.InfoWindow({
+                content: '<div style="color: #000; padding: 12px; text-align: center;"><h3 style="margin: 0 0 8px 0; color: #ff4444;">🏠 CASA DE HOUDINI</h3><p style="margin: 0 0 5px 0;"><strong>Punto de escape</strong></p><p style="margin: 0; font-size: 12px; line-height: 1.4;">Houdini se escapó de aquí el Domingo 28 a las 11:50 p.m.<br>Este es el punto de partida de la búsqueda.</p><p style="margin: 5px 0 0 0; font-size: 11px; color: #666;">Coordenadas: 9.928878068653097, -84.06341474867753</p></div>'
+            });
+
+            casaHoudiniMarker.addListener('click', function() {
+                casaHoudiniInfo.open(map, casaHoudiniMarker);
+            });
+
+            // Marcador 2: Guarda que avisó
+            const guardaMarker = new google.maps.Marker({
+                position: guardaAviso,
+                map: map,
+                title: "Guarda que avisó",
+                label: {
+                    text: "🚨 AVISO",
+                    color: "#ffffff",
+                    fontSize: "12px",
+                    fontWeight: "bold"
+                }
+            });
+
+            const guardaInfo = new google.maps.InfoWindow({
+                content: '<div style="color: #000; padding: 12px; text-align: center;"><h3 style="margin: 0 0 8px 0; color: #ff4444;">🚨 GUARDA QUE AVISÓ</h3><p style="margin: 0 0 5px 0;"><strong>Descripción del aviso:</strong></p><p style="margin: 0; font-size: 12px; line-height: 1.4;">Una muchacha le dijo al guarda que tenía a Houdini, pero el guarda apuntó mal el número de teléfono de la muchacha. Este fue un aviso importante que se perdió por el error en el número.</p><p style="margin: 5px 0 0 0; font-size: 11px; color: #666;">WWHQ+26 San José, San José Province</p></div>'
+            });
+
+            guardaMarker.addListener('click', function() {
+                guardaInfo.open(map, guardaMarker);
+            });
+
+            // Marcador 2: Última vez vista
+            const ultimaVistaMarker = new google.maps.Marker({
+                position: ultimaVista,
+                map: map,
+                title: "Última vez vista",
+                label: {
+                    text: "🐕 HOUDINI",
+                    color: "#ffffff",
+                    fontSize: "12px",
+                    fontWeight: "bold"
+                }
+            });
+
+            const ultimaVistaInfo = new google.maps.InfoWindow({
+                content: '<div style="color: #000; padding: 12px; text-align: center;"><h3 style="margin: 0 0 8px 0; color: #ff4444;">📍 ÚLTIMA VEZ VISTA</h3><p style="margin: 0 0 5px 0;"><strong>Lunes 29 a la 1:00 a.m.</strong></p><p style="margin: 0; font-size: 12px; line-height: 1.4;">Esta fue la última vez que alguien reportó haber visto a Houdini en esta zona. Solo 1 hora y 10 minutos después de haberse escapado de casa.</p><p style="margin: 5px 0 0 0; font-size: 11px; color: #666;">WWJP+862, Av. 6, San José, Francisco Peralta</p></div>'
+            });
+
+            ultimaVistaMarker.addListener('click', function() {
+                ultimaVistaInfo.open(map, ultimaVistaMarker);
+            });
+
+            // Línea conectora entre los tres puntos (ruta de escape de Houdini)
+            const flightPath = new google.maps.Polyline({
+                path: [casaHoudini, guardaAviso, ultimaVista],
+                geodesic: true,
+                strokeColor: "#ff4444",
+                strokeOpacity: 0.8,
+                strokeWeight: 4,
+                icons: [{
+                    icon: {
+                        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                        scale: 4,
+                        strokeColor: "#ff4444",
+                        fillColor: "#ff4444",
+                        fillOpacity: 1
+                    },
+                    offset: '50%',
+                    repeat: '200px'
+                }]
+            });
+            flightPath.setMap(map);
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATJ12HwKtu-sB_-iXfBSNs6vkoyh9W1YY&callback=initMap"></script>
+</body>
+</html>
