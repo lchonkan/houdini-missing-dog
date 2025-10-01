@@ -109,6 +109,12 @@
             <section class="hero">
                 <div class="hero-content">
                     <div class="dog-photos">
+                        <!-- Hero Image - Most Recent Photo -->
+                        <div class="hero-image">
+                            <img src="cc076a2a-df67-48fb-b6ed-96e50eff6eb9.JPG" alt="Houdini - Foto más reciente" class="hero-main-image">
+                            <div class="hero-image-label">📸 Foto más reciente</div>
+                        </div>
+                        
                         <div class="carousel-container">
                             <div class="carousel">
                                 <div class="carousel-slide active">
@@ -171,6 +177,14 @@
                                 <h5>🚨 Guarda que Avisó</h5>
                                 <p><strong>Lunes 29 - 2:00 a.m.</strong></p>
                                 <p>Una muchacha le dijo al guarda que tenía a Houdini y le dió el número para que la llamara. El guarda le dijo esto a una señora. El guarda apuntó mal el número de la muchacha.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-number">4</div>
+                            <div class="timeline-content">
+                                <h5>📍 Nueva Vista</h5>
+                                <p><strong>Ayer - 10:00 p.m.</strong></p>
+                                <p>Nueva reporte de Houdini vista en esta ubicación. Información más reciente disponible.</p>
                             </div>
                         </div>
                     </div>
@@ -249,11 +263,12 @@
             const casaHoudini = { lat: locations.casaHoudini.lat, lng: locations.casaHoudini.lng };
             const guardaAviso = { lat: locations.guardaAviso.lat, lng: locations.guardaAviso.lng };
             const ultimaVista = { lat: locations.ultimaVista.lat, lng: locations.ultimaVista.lng };
+            const nuevaVista = { lat: locations.nuevaVista.lat, lng: locations.nuevaVista.lng };
             
-            // Centro del mapa entre los tres puntos
+            // Centro del mapa entre los cuatro puntos
             const mapCenter = {
-                lat: (casaHoudini.lat + guardaAviso.lat + ultimaVista.lat) / 3,
-                lng: (casaHoudini.lng + guardaAviso.lng + ultimaVista.lng) / 3
+                lat: (casaHoudini.lat + guardaAviso.lat + ultimaVista.lat + nuevaVista.lat) / 4,
+                lng: (casaHoudini.lng + guardaAviso.lng + ultimaVista.lng + nuevaVista.lng) / 4
             };
             
             const map = new google.maps.Map(document.getElementById("map"), {
@@ -331,9 +346,30 @@
                 ultimaVistaInfo.open(map, ultimaVistaMarker);
             });
 
-            // Línea conectora entre los tres puntos (ruta de escape de Houdini)
+            // Marcador 4: Nueva vista
+            const nuevaVistaMarker = new google.maps.Marker({
+                position: nuevaVista,
+                map: map,
+                title: "Nueva vista",
+                label: {
+                    text: "4",
+                    color: "#ffffff",
+                    fontSize: "14px",
+                    fontWeight: "bold"
+                }
+            });
+
+            const nuevaVistaInfo = new google.maps.InfoWindow({
+                content: '<div style="color: #000; padding: 12px; text-align: center;"><h3 style="margin: 0 0 8px 0; color: #ff4444;">📍 NUEVA VISTA</h3><p style="margin: 0 0 5px 0;"><strong>Ayer a las 10:00 p.m.</strong></p><p style="margin: 0; font-size: 12px; line-height: 1.4;">Nueva reporte de Houdini vista en esta ubicación. Información más reciente disponible.</p><p style="margin: 5px 0 0 0; font-size: 11px; color: #666;">Coordenadas: 9.928429028346232, -84.07496780053577</p></div>'
+            });
+
+            nuevaVistaMarker.addListener('click', function() {
+                nuevaVistaInfo.open(map, nuevaVistaMarker);
+            });
+
+            // Línea conectora entre los cuatro puntos (ruta de escape de Houdini)
             const flightPath = new google.maps.Polyline({
-                path: [casaHoudini, ultimaVista, guardaAviso],
+                path: [casaHoudini, ultimaVista, guardaAviso, nuevaVista],
                 geodesic: true,
                 strokeColor: "#ff4444",
                 strokeOpacity: 0.8,

@@ -35,6 +35,12 @@ const config = {
             lng: -84.0639289207042,
             name: "Última vez vista",
             description: "Lunes 29 a la 1:00 a.m."
+        },
+        nuevaVista: {
+            lat: 9.928429028346232,
+            lng: -84.07496780053577,
+            name: "Nueva vista",
+            description: "Ayer a las 10:00 p.m."
         }
     },
     
